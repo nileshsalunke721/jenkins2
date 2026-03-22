@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    triggers{
-        cron("*/1 * * * *")    
-    }
-    
+    // triggers{
+    //     cron("*/1 * * * *")    
+    // }
+
     environment {
         PYTHON = "\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
         VENV = "jen-project"
