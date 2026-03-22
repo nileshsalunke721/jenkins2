@@ -1,5 +1,9 @@
 pipeline {
     agent any
+
+    triggers{
+        cron("*/1 * * * *")    
+    }
     
     environment {
         PYTHON = "\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
