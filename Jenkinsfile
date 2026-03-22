@@ -4,6 +4,7 @@ pipeline {
     environment {
         PYTHON = "\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
         VENV = "jen-project"
+        api_key = credentials("api_key")
     }
     
     stages {
@@ -17,7 +18,6 @@ pipeline {
             steps {
                 bat """
                 %PYTHON% -m venv %VENV%
-                %VENV%\\Scripts\\python.exe -m pip install --upgrade pip
                 %VENV%\\Scripts\\python.exe -m pip install -r requirements.txt
                 """
             }
@@ -26,6 +26,7 @@ pipeline {
         stage("extract data") {
             steps {
                 bat """
+                SET API_KEY = %api_key%
                 %VENV%\\Scripts\\python.exe extract.py
                 """
             }
